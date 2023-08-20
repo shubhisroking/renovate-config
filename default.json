@@ -1,0 +1,11 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:base", ":semanticCommitTypeAll(build)", ":disableRateLimiting", ":automergeMinor", ":automergeBranch"],
+	"labels": ["dependencies"],
+	"semanticCommits": true,
+    "semanticCommitType": "chore",
+    "commitMessageTopic": "{{semanticCommitType}}({{depName}}): update to {{#if isPin}}pin{{else}}latest{{/if}} version",
+    "commitMessageBody": "BREAKING CHANGE: {{#if isBreaking}}\n\n{{commitMessageBody}}{{/if}}",
+    "commitMessageFooter": "{{#if isPin}}\n\n{{commitMessageFooter}}{{/if}}",
+    "commitMessageScope": "{{depName}}",
+}
